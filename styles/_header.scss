@@ -1,0 +1,101 @@
+.nav {
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  top: 0;
+
+  //header
+  &_header {
+    padding: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $primary-color;
+    max-width: $max-width;
+    margin: 0 auto !important;
+  }
+  //logo
+  &_logo a {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: $white;
+    white-space: nowrap;
+  }
+  .logo_span {
+    display: none;
+  }
+
+  //Menu Btn
+  &_menu_btn {
+    font-size: 1.5rem;
+    color: $white;
+    cursor: pointer;
+  }
+
+  //links
+
+  &_links {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem !important;
+    background-color: $primary-color;
+    transform: translateY(-100%);
+    z-index: -1;
+    transition: all 0.5s ease;
+
+    &.open {
+      transform: translateY(100%);
+    }
+
+    a {
+      font-size: 1rem;
+      font-weight: 500;
+      color: $white;
+    }
+  }
+
+  &_btns {
+    display: none;
+    white-space: nowrap;
+  }
+  //! RESPONSIVE DESIGN
+  @include respond(md) {
+    position: static;
+    margin-inline: auto;
+    &_header {
+      padding: 1rem;
+      background-color: transparent;
+    }
+    &_logo a {
+      display: none;
+    }
+    &_links {
+      position: static;
+      flex-direction: row;
+      background-color: transparent;
+      padding: 0;
+      transform: none !important;
+
+      a {
+        color: $text-light;
+      }
+    }
+
+    &_btns {
+      display: block;
+    }
+    .logo_span {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: $white;
+      color: $secondary-color;
+      display: block;
+    }
+  }
+}
